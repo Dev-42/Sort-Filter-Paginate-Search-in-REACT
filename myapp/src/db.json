@@ -1,0 +1,84 @@
+{
+    "users" : [
+        {
+            "name": "John",
+            "email": "john@email.com",
+            "phone": "8697668025",
+            "address": "UK",
+            "id": 3,
+            "status":"Active"
+        },
+        {
+            "name": "James",
+            "email": "james@email.com",
+            "phone": "923110310",
+            "address": "USA",
+            "id": 4,
+            "status":"Inactive"
+        },
+        {
+            "name": "Jenny",
+            "email": "jenny@email.com",
+            "phone": "8697668021",
+            "address": "Italy",
+            "id": 5,
+            "status":"Active"
+        },
+        {
+            "name": "Vishal",
+            "email": "vishal@email.com",
+            "phone": "8810469014",
+            "address": "UK",
+            "id": 8,
+            "status":"Active"
+        },
+        {
+            "name": "Vijay",
+            "email": "vijay@email.com",
+            "phone": "8134124802",
+            "address": "India",
+            "id": 9,
+            "status":"Inactive"
+        },
+        {
+            "name": "Raj",
+            "email": "raj@email.com",
+            "phone": "8697661241",
+            "address": "India",
+            "id": 10,
+            "status":"Inactive"
+        },
+        {
+            "name": "Sam",
+            "email": "sam@email.com",
+            "phone": "8697668024",
+            "address": "Finland",
+            "id": 11,
+            "status":"Active"
+        },
+        {
+            "name": "Tina",
+            "email": "tina@email.com",
+            "phone": "812461539",
+            "address": "New Zealand",
+            "id": 12,
+            "status":"Inactive"
+        },
+        {
+            "name": "Tony",
+            "email": "tony@email.com",
+            "phone": "8697668027",
+            "address": "US",
+            "id": 13,
+            "status":"Active"
+        },
+        {
+             "name": "Kevin",
+            "email": "kevin@email.com",
+            "phone": "8697668029",
+            "address": "Ireland",
+            "id": 14,
+            "status":"Inactive"
+        }
+    ]
+}
