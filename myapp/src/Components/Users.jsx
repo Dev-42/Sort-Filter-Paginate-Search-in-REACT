@@ -8,6 +8,7 @@ import {
   MDBCol,
   MDBContainer,
   MDBBtn,
+  MDBBtnGroup,
 } from "mdb-react-ui-kit";
 
 const Users = () => {
@@ -45,7 +46,16 @@ const Users = () => {
       );
       let searchData = res.data;
       setData(searchData);
-      console.log("Search Result:", searchData); // Debugging line
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const handleFilter = async (value) => {
+    try {
+      let res = await axios.get(`http://localhost:8080/users?status=${value}`);
+      let searchData = res.data;
+      setData(searchData);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -153,6 +163,21 @@ const Users = () => {
               </option>
             ))}
           </select>
+        </MDBCol>
+        <MDBCol size="4">
+          <h5>Filter By Status:</h5>
+          <MDBBtnGroup>
+            <MDBBtn color="success" onClick={() => handleFilter("Active")}>
+              Active
+            </MDBBtn>
+            <MDBBtn
+              color="danger"
+              style={{ marginLeft: "2px" }}
+              onClick={() => handleFilter("Inactive")}
+            >
+              Inactive
+            </MDBBtn>
+          </MDBBtnGroup>
         </MDBCol>
       </MDBRow>
     </MDBContainer>
