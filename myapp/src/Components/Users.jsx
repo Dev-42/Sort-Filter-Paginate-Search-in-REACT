@@ -13,16 +13,19 @@ import {
 const Users = () => {
   const [data, setData] = useState([]);
   const [value, setValue] = useState("");
+  const [sortValue, setSortValue] = useState("");
+
+  const sortOptions = ["name", "email", "address", "phone", "status"];
 
   const handleSearch = async (e) => {
     e.preventDefault();
     console.log("Search Value:", value); // Debugging line
     try {
       let res = await axios.get(`http://localhost:8080/users?q=${value}`);
-      let axiosData = res.data;
-      setData(axiosData);
+      let searchData = res.data;
+      setData(searchData);
       setValue("");
-      console.log("Search Result:", axiosData); // Debugging line
+      console.log("Search Result:", searchData); // Debugging line
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -30,6 +33,22 @@ const Users = () => {
 
   const handleReset = () => {
     getDataFromApi();
+  };
+
+  const handleSort = async (e) => {
+    let value = e.target.value;
+    setSortValue(value);
+    console.log(value);
+    try {
+      let res = await axios.get(
+        `http://localhost:8080/users?_sort=${value}&_order=asc`
+      );
+      let searchData = res.data;
+      setData(searchData);
+      console.log("Search Result:", searchData); // Debugging line
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
   const getDataFromApi = async () => {
@@ -117,6 +136,25 @@ const Users = () => {
           </MDBCol>
         </MDBRow>
       </div>
+      <MDBRow>
+        <MDBCol size="8">
+          <h5>Sort by:</h5>
+          <select
+            name=""
+            id=""
+            style={{ width: "50%", borderRadius: "2px", height: "35px" }}
+            onChange={handleSort}
+            value={sortValue}
+          >
+            <option value="">Please select value</option>
+            {sortOptions.map((item, index) => (
+              <option value={item} key={index}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </MDBCol>
+      </MDBRow>
     </MDBContainer>
   );
 };
